@@ -1,5 +1,6 @@
 // src/pages/About.jsx
 import React from "react";
+import Pixza from "../assets/pizzapixel.svg";
 
 export default function About() {
     return (
@@ -17,7 +18,7 @@ export default function About() {
             </p>
 
             <div >
-                <img src="/pizzapixel.svg" alt="Pizzería" />
+                <img src={Pixza} alt="Pizzería" />
             </div>
         </div>
     );
