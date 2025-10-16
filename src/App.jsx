@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -9,7 +9,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 
-// Window component
+import AdminLogin from "./components/auth/AdminLogin";
+
 import Window from "./components/Window";
 
 import './App.css';
@@ -17,7 +18,34 @@ import './App.css';
 export default function App() {
     const [openWindow, setOpenWindow] = useState(null);
 
-//pages.
+    // Crear usuario admin por defecto al cargar la app
+    useEffect(() => {
+        const users = JSON.parse(localStorage.getItem('pixeleriaUsers')) || [];
+        const adminExists = users.some(user => user.email === 'admin@pixzeleria.com');
+        
+        if (!adminExists) {
+            users.push({
+                run: '12345678-9',
+                name: 'Admin',
+                lastname: 'Principal',
+                email: 'admin@pixzeleria.com',
+                password: 'admin123',
+                role: 'admin',
+                status: 'active'
+            });
+            localStorage.setItem('pixeleriaUsers', JSON.stringify(users));
+            console.log('Usuario admin creado exitosamente');
+        }
+    }, []);
+
+    // Función para manejar el login exitoso
+    const handleAdminLogin = () => {
+    setOpenWindow(null);
+    alert('Login exitoso! Peeeeeeeeero, el panel de administración en construcción uwu');
+    // Aquí va a ir la navegación al panel real
+};
+
+    // Las paginitas de la app
     const pages = {
         home: <Home />,
         login: <Login />,
@@ -25,6 +53,7 @@ export default function App() {
         about: <About />,
         contact: <Contact />,
         blogs: <Blogs />,
+        admin: <AdminLogin onLoginSuccess={handleAdminLogin} />,
     };
 
     return (
@@ -47,7 +76,7 @@ export default function App() {
                                 className="button"
                                 onClick={() => setOpenWindow(key)}
                             >
-                                {key.toUpperCase()}
+                                {key === 'admin' ? '🔐 ADMIN' : key.toUpperCase()}
                             </button>
                         ))}
                     </div>
