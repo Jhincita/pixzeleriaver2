@@ -17,6 +17,8 @@ import './App.css';
 export default function App() {
     const [openWindow, setOpenWindow] = useState(null);
 
+
+
 //pages.
     const pages = {
         home: <Home />,

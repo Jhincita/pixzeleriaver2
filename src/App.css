@@ -160,6 +160,7 @@ img, h1 img {
     border: 2px solid #000;
     font-family: "lores-15-bold-alt-oakland", sans-serif;
     background-color: #fff;
+    color: #1a1a1a;
 }
 
 .form-group input:focus,
