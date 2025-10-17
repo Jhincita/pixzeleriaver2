@@ -29,7 +29,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
     if (!formData.email) {
       newErrors.email = 'El email es obligatorio';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'El email no tiene un formato válido';
+      newErrors.email = 'El formato del email no es válido.';
     }
 
     if (!formData.password) {
