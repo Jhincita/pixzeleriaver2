@@ -1,3 +1,26 @@
+.blog-post{
+    background-color: #ffe2ea;
+    border-color: #e6ffe6;
+    border-style: solid;
+    border-width: 5px;
+
+}
+.blog-post img{
+    width: 100%;
+    border-color: #EDB96E;
+    border-width: 5px;
+    border-style: double;
+
+}
+
+.blog-post h1{
+    text-align: center;
+    font-size: 180%;
+}
+.blog-post h2{
+    text-align: center;
+    font-size: 120%;
+}
 
 body {
     font-family: "lores-15-bold-alt-oakland", sans-serif;
@@ -10,7 +33,7 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
-    background-image: url("./assets/bg.svg") ;
+    background-image: url("./assets/bg.svg");
     background-attachment: fixed;
 }
 .header {
