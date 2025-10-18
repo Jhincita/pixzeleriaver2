@@ -10,6 +10,8 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
+    background-image: url("./assets/bg.svg") ;
+    background-attachment: fixed;
 }
 .header {
     margin-top: 4vh; /*proporcional al view height.*/
