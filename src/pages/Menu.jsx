@@ -1,17 +1,25 @@
 import "./Menu.css";
+import MenuImage from "../components/MenuImage";
+
 // importacion de imgs
-import ProsciuttoPistacchio from "../assets/prosciuttopistaccio.png";
-import PizzaPepperoni from "../assets/pepperoni.png";
-import Prosciutto from "../assets/prosciuttorugula.png";
-import Pizzamargherita from "../assets/pizzamargherita.png";
-import PizzaDatterini from "../assets/pizzaDatterini.png";
-import PizzaBuffalina from "../assets/pizzaBuffalina.png";
+import ProsciuttoPistacchio from "../assets/menuimg/prosciuttopistaccio.png";
+import ProsciuttoPistacchioPixel from "../assets/menuimg_hover/prosciuttopistaccio.png";
+
+import PizzaPepperoni from "../assets/menuimg/pepperoni.png";
+import Prosciutto from "../assets/menuimg/prosciuttorugula.png";
+
+
+import Pizzamargherita from "../assets/menuimg/pizzamargherita.png";
+import PizzamargheritaPixel from "../assets/menuimg_hover/pizzamargherita.png";
+
+import PizzaDatterini from "../assets/menuimg/pizzadatterini.png";
+import PizzaBuffalina from "../assets/menuimg/pizzabuffalina.png";
 
 export default function Menu({ cart, setCart }) {
 
     const menuItems = [
-        { id: 1, name: "Pizza Margherita", price: "8000" , img: Pizzamargherita },
-        {id: 2, name: "Pizza Prosciutto", price: "10000" , img: ProsciuttoPistacchio },
+        { id: 1, name: "Pizza Margherita", price: "8000" , img: Pizzamargherita, pixelImg: PizzamargheritaPixel },
+        {id: 2, name: "Pizza Prosciutto", price: "10000" , img: ProsciuttoPistacchio, pixelImg: ProsciuttoPistacchioPixel },
         {id: 3, name: "Pizza Pepperoni", price: "9000" , img: PizzaPepperoni },
         {id: 4, name: "Pizza Prosciutto", price: "10000" , img: Prosciutto },
         {id: 5, name: "Pizza Datterini", price: "9000" , img: PizzaDatterini },
@@ -61,7 +69,11 @@ export default function Menu({ cart, setCart }) {
             <ul className="menu-list">
                 {menuItems.map((item) => (
                     <li key={item.id} className="menu-item">
-                        <img src={item.img} alt={item.name} />
+                        <MenuImage
+                            normalSrc={item.img}
+                            pixelSrc={item.pixelImg || item.img} // fallback if no pixel version
+                            alt={item.name}
+                        />
                         <div>
                             <h3>{item.name}</h3>
                             <h2>${item.price}</h2>
@@ -73,9 +85,7 @@ export default function Menu({ cart, setCart }) {
                                     -
                                 </button>
 
-                                <span className="quantity">
-                                    {getQuantity(item.id)}
-                                </span>
+                                <span className="quantity">{getQuantity(item.id)}</span>
 
                                 <button
                                     className="button-plus"
@@ -86,6 +96,7 @@ export default function Menu({ cart, setCart }) {
                             </div>
                         </div>
                     </li>
+
                 ))}
             </ul>
         </div>
