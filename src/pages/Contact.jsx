@@ -11,7 +11,7 @@ export default function Contact() {
 
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
-    const [openWindow, setOpenWindow] = useState(true); // initially open
+    // const [openWindow, setOpenWindow] = useState(true); // revisar
 
     const handleChange = (e) => {
         const { name, value } = e.target;

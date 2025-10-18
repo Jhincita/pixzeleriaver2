@@ -8,6 +8,8 @@ import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
+import CartPage from "./pages/CartPage.jsx";
+
 
 // Window component
 import Window from "./components/Window";
@@ -16,17 +18,20 @@ import './App.css';
 
 export default function App() {
     const [openWindow, setOpenWindow] = useState(null);
+    const [User, setUser] = useState(null);
+    const [cart, setCart] = useState([]);
 
 
 
 //pages.
     const pages = {
-        home: <Home />,
-        login: <Login />,
-        menu: <Menu />,
+        home: <Home User={User} setUser={setUser} />,
+        login: <Login User={User} setUser={setUser} />,
+        menu: <Menu cart={cart} setCart={setCart} />,
         about: <About />,
         contact: <Contact />,
         blogs: <Blogs />,
+        cart: <CartPage cart={cart} setCart={setCart} />,
     };
 
     return (
