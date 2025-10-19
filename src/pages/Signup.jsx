@@ -103,7 +103,7 @@ export default function Signup() {
             localStorage.setItem("pixeleriaUsers", JSON.stringify(users));
 
             alert("Registro exitoso. Ahora puedes iniciar sesión.");
-            window.location.href = "/login"; // Redirigir
+            window.location.href = "/"; // Redirigir
         }
     };
 

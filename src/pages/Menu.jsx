@@ -18,12 +18,12 @@ import PizzaBuffalina from "../assets/menuimg/pizzabuffalina.png";
 export default function Menu({ cart, setCart }) {
 
     const menuItems = [
-        { id: 1, name: "Pizza Margherita", price: "8000" , img: Pizzamargherita, pixelImg: PizzamargheritaPixel },
-        {id: 2, name: "Pizza Prosciutto", price: "10000" , img: ProsciuttoPistacchio, pixelImg: ProsciuttoPistacchioPixel },
-        {id: 3, name: "Pizza Pepperoni", price: "9000" , img: PizzaPepperoni },
-        {id: 4, name: "Pizza Prosciutto", price: "10000" , img: Prosciutto },
-        {id: 5, name: "Pizza Datterini", price: "9000" , img: PizzaDatterini },
-        {id: 6, name: "Pizza Buffalina", price: "10000" , img: PizzaBuffalina },
+        { id: 1, name: "Pizza Margherita", price: 8000 , img: Pizzamargherita, pixelImg: PizzamargheritaPixel },
+        {id: 2, name: "Pizza Prosciutto", price: 10000 , img: ProsciuttoPistacchio, pixelImg: ProsciuttoPistacchioPixel },
+        {id: 3, name: "Pizza Pepperoni", price: 9000 , img: PizzaPepperoni },
+        {id: 4, name: "Pizza Prosciutto", price: 10000 , img: Prosciutto },
+        {id: 5, name: "Pizza Datterini", price: 9000 , img: PizzaDatterini },
+        {id: 6, name: "Pizza Buffalina", price: 10000 , img: PizzaBuffalina },
 
     ];
 
