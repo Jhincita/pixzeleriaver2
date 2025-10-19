@@ -4,9 +4,37 @@ import React, { useState, useEffect } from "react";
 // Datos de regiones y comunas de Chile
 const chileData = {
     regiones: [
-        { id: 1, nombre: "Arica y Parinacota", comunas: ["Arica", "Camarones", "Putre", "General Lagos"] },
-        { id: 2, nombre: "Tarapacá", comunas: ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"] },
-        // ... agrega todas las demás regiones como en tu JS
+        {
+            id: 1,
+            nombre: "Región Metropolitana",
+            comunas: [
+                "Las Condes",
+                "Providencia",
+                "Vitacura",
+                "La Reina",
+                "Maipú",
+                "Puente Alto",
+                "Santiago Centro",
+                "La Florida",
+                "Peñalolén",
+                "Ñuñoa"
+            ]
+        },
+        { id: 2, nombre: "Arica y Parinacota", comunas: ["Arica", "Putre"] },
+        { id: 3, nombre: "Tarapacá", comunas: ["Iquique", "Alto Hospicio"] },
+        { id: 4, nombre: "Antofagasta", comunas: ["Antofagasta", "Calama"] },
+        { id: 5, nombre: "Atacama", comunas: ["Copiapó", "Vallenar"] },
+        { id: 6, nombre: "Coquimbo", comunas: ["La Serena", "Coquimbo"] },
+        { id: 7, nombre: "Valparaíso", comunas: ["Valparaíso", "Viña del Mar"] },
+        { id: 8, nombre: "O’Higgins", comunas: ["Rancagua", "San Fernando"] },
+        { id: 9, nombre: "Maule", comunas: ["Talca", "Curicó"] },
+        { id: 10, nombre: "Ñuble", comunas: ["Chillán", "San Carlos"] },
+        { id: 11, nombre: "Biobío", comunas: ["Concepción", "Los Ángeles"] },
+        { id: 12, nombre: "La Araucanía", comunas: ["Temuco", "Villarrica"] },
+        { id: 13, nombre: "Los Ríos", comunas: ["Valdivia", "Panguipulli"] },
+        { id: 14, nombre: "Los Lagos", comunas: ["Puerto Montt", "Osorno"] },
+        { id: 15, nombre: "Aysén", comunas: ["Coyhaique", "Puerto Aysén"] },
+        { id: 16, nombre: "Magallanes", comunas: ["Punta Arenas", "Puerto Natales"] }
     ]
 };
 
@@ -80,7 +108,7 @@ export default function Signup() {
     };
 
     return (
-        <div >
+        <div className="form-wrapper" >
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nombre de usuario:</label>
