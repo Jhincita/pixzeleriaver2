@@ -10,6 +10,8 @@ export default function Window({ title, children, isOpen, onClose }) {
         config: { tension: 80, friction: 20 },
     });
 
+    if (!isOpen) return null;
+
     return (
         <animated.div style={{ ...styles, position: 'relative', transformOrigin: 'center', zIndex: 1000 }}>
             <div className="window">

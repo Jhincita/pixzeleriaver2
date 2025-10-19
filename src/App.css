@@ -1,3 +1,12 @@
+.page-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
 .blog-post{
     background-color: #ffe2ea;
     border-color: #e6ffe6;
@@ -43,7 +52,10 @@ body {
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
 .window {
     position: relative;
@@ -159,6 +171,17 @@ img, h1 img {
 
 
 /* Estilos para formularios */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    max-width: 600px;
+
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;
