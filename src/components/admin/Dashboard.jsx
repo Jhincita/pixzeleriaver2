@@ -1,10 +1,15 @@
+import ventasicono from '../../assets/moneda.png';
+import usuariosicono from '../../assets/equipo.png';
+import ordenesicono from '../../assets/empleado.png';
+import productosicono from '../../assets/trofeo.png';
+
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="stats-grid">
         <div className="stat-card">
           <div className="stat-icon">
-            <i className="fas fa-shopping-bag"></i>
+            <img src={ventasicono} alt="Ventas" className="stat-img" />
           </div>
           <div className="stat-info">
             <h3>Ventas Hoy</h3>
@@ -15,7 +20,7 @@ const Dashboard = () => {
 
         <div className="stat-card">
           <div className="stat-icon">
-            <i className="fas fa-users"></i>
+            <img src={usuariosicono} alt="Usuarios regsitrados" className="stat-img" />
           </div>
           <div className="stat-info">
             <h3>Usuarios Registrados</h3>
@@ -26,7 +31,7 @@ const Dashboard = () => {
 
         <div className="stat-card">
           <div className="stat-icon">
-            <i className="fas fa-pizza-slice"></i>
+            <img src={ordenesicono} alt="Pendientes" className="stat-img" />
           </div>
           <div className="stat-info">
             <h3>Órdenes Pendientes</h3>
@@ -37,7 +42,7 @@ const Dashboard = () => {
 
         <div className="stat-card">
           <div className="stat-icon">
-            <i className="fas fa-star"></i>
+            <img src={productosicono} alt="Top" className="stat-img" />
           </div>
           <div className="stat-info">
             <h3>Productos Más Vendidos</h3>
@@ -53,10 +58,10 @@ const Dashboard = () => {
           <div className="best-sellers-list">
             {[
               { name: "Pixza Pepperoni", sales: 152, revenue: "1.4M" },
-              { name: "Pixza Margarita", sales: 128, revenue: "1.1M" },
-              { name: "Pixza Hawaiana", sales: 98, revenue: "890K" },
-              { name: "Pixza Cuatro Quesos", sales: 76, revenue: "720K" },
-              { name: "Pixza Vegetariana", sales: 64, revenue: "580K" }
+              { name: "Pixza Margherita", sales: 128, revenue: "1.1M" },
+              { name: "Pixza Prosciutto", sales: 98, revenue: "890K" },
+              { name: "Pixza Datterini", sales: 76, revenue: "720K" },
+              { name: "Pixza Buffalina", sales: 64, revenue: "580K" }
             ].map((product, index) => (
               <div key={index} className="product-item">
                 <div className="product-info">

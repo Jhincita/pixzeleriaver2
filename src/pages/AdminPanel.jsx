@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import AdminLayout from '../components/admin/AdminLayout';
 import Dashboard from '../components/admin/Dashboard';
+import UsersSection from '../components/admin/UsersSection';
+import ProductsSection from '../components/admin/ProductsSection';
+import ReportsSection from '../components/admin/ReportsSection';
+import OrdersSection from '../components/admin/OrdersSection';
 
 const AdminPanel = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
@@ -9,14 +13,14 @@ const AdminPanel = () => {
     switch (activeSection) {
       case 'dashboard':
         return <Dashboard />;
-      case 'products':
-        return <div>Gestión de Productos (próximamente)</div>;
       case 'users':
-        return <div>Gestión de Usuarios (próximamente)</div>;
+        return <UsersSection />;
+      case 'products':
+        return <ProductsSection />;
       case 'orders':
-        return <div>Gestión de Órdenes (próximamente)</div>;
+        return <OrdersSection />;
       case 'reports':
-        return <div>Reportes (próximamente)</div>;
+        return <ReportsSection />;
       default:
         return <Dashboard />;
     }

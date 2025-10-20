@@ -8,22 +8,38 @@ const AdminLayout = ({ children, activeSection, onSectionChange }) => {
   const [adminUser, setAdminUser] = useState(null);
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
-    const user = sessionStorage.getItem('adminUser');
+    // Leer de localStorage en lugar de sessionStorage
+    const currentUser = localStorage.getItem('currentUser');
 
-    if (!isLoggedIn || isLoggedIn !== 'true') {
-      // Redirige al login si no hay sesión
-      window.location.href = '/';
-    } else {
-      setAdminUser(JSON.parse(user));
+    console.log("🔍 AdminLayout - Verificando usuario...");
+    console.log("currentUser:", currentUser);
+
+    if (!currentUser) {
+      console.log("❌ No hay usuario logueado, redirigiendo...");
+      window.location.href = '/pixzeleriaver2/';
+      return;
     }
+
+    const user = JSON.parse(currentUser);
+    console.log("Usuario parseado:", user);
+    console.log("¿Es admin?", user.role === 'admin');
+
+    if (user.role !== 'admin') {
+      console.log("❌ Usuario no es admin, redirigiendo...");
+      window.location.href = '/pixzeleriaver2/';
+      return;
+    }
+
+    console.log("✅ Usuario admin válido");
+    setAdminUser(user);
   }, []);
 
   const handleLogout = () => {
     if (window.confirm('¿Estás seguro de que quieres cerrar sesión?')) {
-      sessionStorage.removeItem('adminLoggedIn');
-      sessionStorage.removeItem('adminUser');
-      window.location.href = '/';
+      // Limpiar localStorage
+      localStorage.removeItem('currentUser');
+      console.log("🚪 Sesión cerrada");
+      window.location.href = '/pixzeleriaver2/';
     }
   };
 
@@ -33,9 +49,16 @@ const AdminLayout = ({ children, activeSection, onSectionChange }) => {
 
   if (!adminUser) {
     return (
-      <div className="admin-loading">
-        <i className="fas fa-spinner fa-spin"></i>
-        <p>Cargando...</p>
+      <div className="admin-loading" style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        fontSize: '20px'
+      }}>
+        <div style={{ fontSize: '40px', marginBottom: '20px' }}>⏳</div>
+        <p>Cargando panel de administración...</p>
       </div>
     );
   }
