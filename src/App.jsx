@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import CartPage from "./pages/CartPage.jsx";
 import AdminPanel from "./pages/AdminPanel";
+import Juego from './pages/Juego.jsx';
 import Window from "./components/Window";
 import './App.css';
 
@@ -38,6 +39,7 @@ function MainPage({ User, setUser, cart, setCart, handleLoginSuccess }) {
         contact: <Contact />,
         blogs: <Blogs />,
         cart: <CartPage cart={cart} setCart={setCart} />,
+        juego: <Juego />   
     };
 
     return (
@@ -59,7 +61,7 @@ function MainPage({ User, setUser, cart, setCart, handleLoginSuccess }) {
                             className="button"
                             onClick={() => setOpenWindow(key)}
                         >
-                            {key.toUpperCase()}
+                            {key === 'game' ? 'JUEGO' : key.toUpperCase()}
                         </button>
                     ))}
                 </div>
