@@ -1,7 +1,12 @@
-# Pixzeleria
+## Pixzeleria
 
 React + Vite. Proyecto de Fullstack II
 Mara y Eni
+
+# panel de admin
+https://jhincita.github.io/pixzeleria/admin
+
+
 
 Versiones anteriores:
 - https://github.com/Jhincita/pixzeleria (branch main, sin react)
