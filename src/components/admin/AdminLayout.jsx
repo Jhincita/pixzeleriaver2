@@ -8,14 +8,13 @@ const AdminLayout = ({ children, activeSection, onSectionChange }) => {
   const [adminUser, setAdminUser] = useState(null);
 
   useEffect(() => {
-    // Leer de localStorage en lugar de sessionStorage
     const currentUser = localStorage.getItem('currentUser');
 
     console.log("🔍 AdminLayout - Verificando usuario...");
     console.log("currentUser:", currentUser);
 
     if (!currentUser) {
-      console.log("❌ No hay usuario logueado, redirigiendo...");
+      console.log("No hay usuario logueado, redirigiendo...");
       window.location.href = '/pixzeleriaver2/';
       return;
     }
@@ -25,12 +24,12 @@ const AdminLayout = ({ children, activeSection, onSectionChange }) => {
     console.log("¿Es admin?", user.role === 'admin');
 
     if (user.role !== 'admin') {
-      console.log("❌ Usuario no es admin, redirigiendo...");
+      console.log("Usuario no es admin, redirigiendo...");
       window.location.href = '/pixzeleriaver2/';
       return;
     }
 
-    console.log("✅ Usuario admin válido");
+    console.log("Usuario admin válido");
     setAdminUser(user);
   }, []);
 
@@ -38,7 +37,7 @@ const AdminLayout = ({ children, activeSection, onSectionChange }) => {
     if (window.confirm('¿Estás seguro de que quieres cerrar sesión?')) {
       // Limpiar localStorage
       localStorage.removeItem('currentUser');
-      console.log("🚪 Sesión cerrada");
+      console.log("Sesión cerrada");
       window.location.href = '/pixzeleriaver2/';
     }
   };

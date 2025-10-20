@@ -48,7 +48,7 @@ const ProductsSection = () => {
   return (
     <div className="products-section">
       <div className="section-header">
-        <h2>🍕 Gestión de Productos</h2>
+        <h2>Gestión de Productos</h2>
         <p>Administra el catálogo de productos</p>
       </div>
 
@@ -72,9 +72,9 @@ const ProductsSection = () => {
         </div>
         <select className="filter-select" value={filterCat} onChange={e => setFilterCat(e.target.value)}>
           <option value="all">Todas las categorías</option>
-          <option value="pizza">🍕 Pizzas</option>
-          <option value="drink">🥤 Bebidas</option>
-          <option value="dessert">🍨 Postres</option>
+          <option value="pizza">Pizzas</option>
+          <option value="drink">Bebidas</option>
+          <option value="dessert">Postres</option>
         </select>
       </div>
 
@@ -139,7 +139,7 @@ const StatCard = ({ icon, label, value }) => (
 );
 
 const CategoryBadge = ({ cat }) => {
-  const map = { pizza: '🍕 Pizza', drink: '🥤 Bebida', dessert: '🍨 Postre' };
+  const map = { pizza: 'Pizza', drink: 'Bebida', dessert: 'Postre' };
   return <span className="role-badge user">{map[cat] || cat}</span>;
 };
 

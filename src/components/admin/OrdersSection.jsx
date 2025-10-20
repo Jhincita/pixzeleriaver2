@@ -88,7 +88,7 @@ const OrdersSection = () => {
   return (
     <div className="orders-section">
       <div className="section-header">
-        <h2>📦 Gestión de Órdenes</h2>
+        <h2>Gestión de Órdenes</h2>
         <p>Revisa y gestiona las órdenes de tus clientes</p>
       </div>
 

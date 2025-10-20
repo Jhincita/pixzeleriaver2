@@ -33,7 +33,7 @@ const UsersSection = () => {
 
   const handleDeleteUser = (userEmail) => {
     if (userEmail === 'admin@pixzeleria.com') {
-      alert('❌ No puedes eliminar al administrador principal');
+      alert('No puedes eliminar al administrador principal');
       return;
     }
 
@@ -46,7 +46,7 @@ const UsersSection = () => {
 
   const handleChangeRole = (userEmail) => {
     if (userEmail === 'admin@pixzeleria.com') {
-      alert('❌ No puedes cambiar el rol del administrador principal');
+      alert('No puedes cambiar el rol del administrador principal');
       return;
     }
 
@@ -144,9 +144,9 @@ const UsersSection = () => {
             onChange={(e) => setFilterStatus(e.target.value)}
             className="filter-select"
           >
-            <option value="all">📋 Todos los estados</option>
-            <option value="active">✅ Activos</option>
-            <option value="inactive">❌ Inactivos</option>
+            <option value="all">Todos los estados</option>
+            <option value="active">Activos</option>
+            <option value="inactive">Inactivos</option>
           </select>
 
           <select 

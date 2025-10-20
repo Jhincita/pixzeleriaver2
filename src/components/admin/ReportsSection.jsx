@@ -29,7 +29,7 @@ const ReportsSection = () => {
   return (
     <div className="reports-section">
       <div className="section-header">
-        <h2>📊 Reportes</h2>
+        <h2>Reportes</h2>
         <p>Visualiza estadísticas de tu negocio</p>
       </div>
 
@@ -73,8 +73,8 @@ const ReportsSection = () => {
 
         <div className="content-card">
           <h3>Descargar</h3>
-          <button className="btn-action btn-primary" style={{marginRight:8}}>📥 Excel</button>
-          <button className="btn-action btn-primary">📄 PDF</button>
+          <button className="btn-action btn-primary" style={{marginRight:8}}>Excel</button>
+          <button className="btn-action btn-primary">PDF</button>
         </div>
       </div>
     </div>
