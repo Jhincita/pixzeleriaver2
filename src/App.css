@@ -42,11 +42,13 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
-    background-image: url("./assets/bg.svg");
-    background-attachment: fixed;
+    background: url("./assets/bg.svg");
+    background-repeat: repeat;
+    background-position: top left;
+    background-size: auto;
 }
 .header {
-    margin-top: 4vh; /*proporcional al view height.*/
+    margin-top: 4vh;
 }
 
 .page-wrapper {

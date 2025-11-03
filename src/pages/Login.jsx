@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import Signup from "./Signup";
 import Window from "../components/Window";
 
-export default function Login() {
-    const [username, setUsername] = useState("");
+export default function Login({ User, setUser, onLoginSuccess, onClose }) {
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState({ username: "", password: "" });
-    const [openWindow, setOpenWindow] = useState(null); //para manejar el signuppopup
+    const [errors, setErrors] = useState({ email: "", password: "" });
+    const [openWindow, setOpenWindow] = useState(null);
 
     const renderWindowContent = () => {
         switch (openWindow) {
@@ -17,18 +17,92 @@ export default function Login() {
                 return null;
         }
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation(); // Prevenir cualquier propagación del evento
 
-        // Simple validation example
-        const newErrors = { username: "", password: "" };
-        if (!username) newErrors.username = "El nombre de usuario es obligatorio.";
-        if (!password) newErrors.password = "La contraseña es obligatoria.";
+        console.log("🔵 Iniciando proceso de login...");
+        console.log("Email ingresado:", email);
+
+        // Validación básica
+        const newErrors = { email: "", password: "" };
+        if (!email) {
+            newErrors.email = "El correo electrónico es obligatorio.";
+        }
+        if (!password) {
+            newErrors.password = "La contraseña es obligatoria.";
+        }
+        
         setErrors(newErrors);
 
-        if (!newErrors.username && !newErrors.password) {
-            console.log("Logging in with", { username, password });
-            // Handle login logic here
+        if (!newErrors.email && !newErrors.password) {
+            console.log("✅ Validación pasada, buscando usuario...");
+            
+            // Obtener usuarios de localStorage
+            const users = JSON.parse(localStorage.getItem('pixeleriaUsers')) || [];
+            console.log("Total usuarios en DB:", users.length);
+            
+            // Buscar usuario con las credenciales proporcionadas
+            const user = users.find(
+                u => u.email === email && u.password === password
+            );
+
+            console.log("Usuario encontrado:", user ? "SÍ" : "NO");
+
+            if (user) {
+                console.log("Datos del usuario:", { name: user.name, role: user.role, status: user.status });
+                
+                // Verificar si el usuario está activo
+                if (user.status === 'inactive') {
+                    console.log("❌ Usuario inactivo");
+                    setErrors({
+                        email: "",
+                        password: "Tu cuenta está inactiva. Contacta al administrador."
+                    });
+                    return;
+                }
+
+                // Login exitoso
+                console.log("✅ Login exitoso:", user.name);
+                console.log("🔑 Rol del usuario:", user.role);
+                
+                // Guardar usuario en localStorage
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log("💾 Usuario guardado en localStorage");
+                
+                // Actualizar estado del usuario
+                setUser(user);
+                
+                // Verificar si es admin
+                if (user.role === 'admin') {
+                    console.log("🔐 ES ADMIN - Redirigiendo en 1 segundo...");
+                    // Dar tiempo para ver los logs
+                    setTimeout(() => {
+                        console.log("➡️ Redirigiendo ahora a /pixzeleriaver2/admin");
+                        window.location.href = '/pixzeleriaver2/admin';
+                    }, 1000);
+                } else {
+                    console.log("👤 Usuario normal, cerrando ventana...");
+                    // Llamar onLoginSuccess para usuarios normales
+                    if (onLoginSuccess) {
+                        onLoginSuccess(user);
+                    }
+                    // Cerrar ventana
+                    if (onClose) {
+                        onClose();
+                    }
+                }
+            } else {
+                console.log("❌ Credenciales incorrectas");
+                // Credenciales incorrectas
+                setErrors({
+                    email: "",
+                    password: "Correo o contraseña incorrectos."
+                });
+            }
+        } else {
+            console.log("❌ Errores de validación:", newErrors);
         }
     };
 
@@ -36,16 +110,17 @@ export default function Login() {
         <div className="form-wrapper">
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="username">Nombre de usuario:</label>
+                    <label htmlFor="email">Correo electrónico:</label>
                     <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         maxLength={100}
                         required
+                        placeholder="ejemplo@correo.com"
                     />
-                    <div className="error-message">{errors.username}</div>
+                    <div className="error-message">{errors.email}</div>
                 </div>
 
                 <div className="form-group">
@@ -62,8 +137,9 @@ export default function Login() {
                     <div className="error-message">{errors.password}</div>
                 </div>
 
-                <button type="submit" className="pixel-button">Ingresar</button>
-
+                <button type="submit" className="pixel-button">
+                    Ingresar
+                </button>
             </form>
 
             <p>
@@ -84,6 +160,5 @@ export default function Login() {
                 {renderWindowContent()}
             </Window>
         </div>
-
     );
 }
