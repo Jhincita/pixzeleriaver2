@@ -72,8 +72,8 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-}
+    align-items: center;
+
  
 .window-title {
     position: relative;
@@ -93,8 +93,6 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
-
-
 
 
 /* Container for buttons */
@@ -248,4 +246,5 @@ img, h1 img {
         margin: 10px 5px; /* small margins */
         padding: 5px;     /* reduce padding */
     }
+}
 }
