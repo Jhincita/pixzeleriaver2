@@ -6,17 +6,35 @@
     width: 80%;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    max-height: 80vh;
 
-    transform-origin: top center;  /* smooth scale animation */
-    display: flex;                 /* allows the content to flex inside */
-    flex-direction: column;        /* stack title + content */
-    overflow: hidden;              /* clip overflow edges */
+    /* make parent flexible and scrollable */
+    max-height: 90vh;
+    overflow-y: auto;           /* allow internal scroll */
+    overflow-x: hidden;
+
+    transform-origin: top center;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-container.inner {
+    position: relative;     /* local positioning inside parent */
+    max-height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
+    z-index: 10000;         /* on top of outer window */
+}
+
+
+.window-container.wide {
+    max-width: 900px;   /* or whatever you need */
+    width: 90%;
 }
 
 .window-title {
     background: #222;
-    color: #EBA4B5;
+    color: #ffffff;
     padding: 10px 16px;
     display: flex;
     justify-content: space-between;
