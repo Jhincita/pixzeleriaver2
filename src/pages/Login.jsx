@@ -137,9 +137,14 @@ export default function Login({ User, setUser, onLoginSuccess, onClose }) {
                     <div className="error-message">{errors.password}</div>
                 </div>
 
+<<<<<<< HEAD
                 <button type="submit" className="pixel-button">
                     Ingresar
                 </button>
+=======
+                <button type="submit" className="pixel-button">Ingresar</button>
+
+>>>>>>> fcdb562 (arma tu pipsha)
             </form>
 
             <p>

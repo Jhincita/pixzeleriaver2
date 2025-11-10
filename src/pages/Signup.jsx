@@ -109,6 +109,7 @@ export default function Signup() {
     };
 
     return (
+<<<<<<< HEAD
 
             <div className="form-wrapper">
                 <form className="auth-form" onSubmit={handleSubmit}>
@@ -263,6 +264,9 @@ export default function Signup({ onSwitchToLogin }) {
 
     return (
         <div className="form-wrapper">
+=======
+        <div className="form-wrapper" >
+>>>>>>> fcdb562 (arma tu pipsha)
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nombre de usuario:</label>

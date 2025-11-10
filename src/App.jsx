@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
+<<<<<<< HEAD
 import HomeImg from "./assets/navbar/home.svg"
 
 import Login from "./pages/Login";
@@ -18,6 +19,16 @@ import CartPage from "./pages/CartPage.jsx";
 import CartImg from "./assets/navbar/cart.svg"
 import BuildAPizza from "./components/BuildAPizza/BuildAPizza.jsx";
 import BuildAPizzaImg from "./assets/navbar/buildAPizza.svg"
+=======
+import Login from "./pages/Login";
+import Menu from "./pages/Menu";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import CartPage from "./pages/CartPage.jsx";
+import ArmaTuPizza from "./pages/ArmaTuPizza.jsx";
+
+>>>>>>> fcdb562 (arma tu pipsha)
 
 import AdminPanel from "./pages/AdminPanel";
 
@@ -39,7 +50,10 @@ function ProtectedAdminRoute({ children }) {
 
 function MainPage({ User, setUser, cart, setCart, handleLoginSuccess }) {
     const [openWindow, setOpenWindow] = useState(null);
+    const [User, setUser] = useState(null);
+    const [cart, setCart] = useState([]);
 
+<<<<<<< HEAD
     const pages = {
         Home:{
             img: HomeImg,
@@ -153,6 +167,20 @@ export default function App() {
     // Función para manejar login exitoso
     const handleLoginSuccess = (user) => {
         setUser(user);
+=======
+
+
+//pages.
+    const pages = {
+        home: <Home User={User} setUser={setUser} />,
+        login: <Login User={User} setUser={setUser} />,
+        menu: <Menu cart={cart} setCart={setCart} />,
+        about: <About />,
+        contact: <Contact />,
+        blogs: <Blogs />,
+        cart: <CartPage cart={cart} setCart={setCart} />,
+        armatupizza: <ArmaTuPizza cart={cart} setCart={setCart}/>
+>>>>>>> fcdb562 (arma tu pipsha)
     };
 
     return (
