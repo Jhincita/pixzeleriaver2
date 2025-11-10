@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import CartPage from "./pages/CartPage.jsx";
+import ArmaTuPizza from "./pages/ArmaTuPizza.jsx";
 
 
 // Window component
@@ -32,6 +33,7 @@ export default function App() {
         contact: <Contact />,
         blogs: <Blogs />,
         cart: <CartPage cart={cart} setCart={setCart} />,
+        armatupizza: <ArmaTuPizza cart={cart} setCart={setCart}/>
     };
 
     return (
