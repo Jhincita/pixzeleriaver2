@@ -1,14 +1,3 @@
-/* ===========================
-   GLOBAL RESET + FONT
-=========================== */
-*,
-*::before,
-*::after {
-    font-family: "lores-15-bold-alt-oakland", sans-serif !important;
-    font-weight: 160;
-    font-style: normal;
-    box-sizing: border-box;
-}
 
 body {
     font-family: "lores-15-bold-alt-oakland", sans-serif;
@@ -16,161 +5,137 @@ body {
     font-style: normal;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
     text-align: center;
-    background: #e1cdcd url("./assets/bg.svg") repeat top left;
-    background-size: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.header {
+    margin-top: 4vh; /*proporcional al view height.*/
 }
 
-/* ===========================
-   LAYOUT + STRUCTURE
-=========================== */
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
-
-.header {
-    margin-top: 4vh;
-}
-
-.header img{
-    width: 80%;
-    max-width: 400px;
-}
-.page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-}
-
-/* ===========================
-   WINDOW FRAME
-=========================== */
 .window {
     position: relative;
     width: 88%;
     max-width: 600px;
     margin: 20px auto;
+    padding: 0;
     border: 2px solid #000;
     background-color: #fff;
+    background-image: url("assets/window_border_red.svg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
 }
-
+ 
 .window-title {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 159, 181, 1);
+    justify-content: center; /* title stays centered */
+    background-color: rgba(255,159,181,1);
     width: 100%;
     padding: 5px 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .window-title button {
     position: absolute;
-    right: 0;
+    right: 0px;   /* adjust as needed */
     top: 50%;
     transform: translateY(-50%);
 }
 
-.window-title button:hover {
-    background-color: #e84444;
-    color: #fff;
-}
 
-/* ===========================
-   NAVIGATION BUTTONS (icon + label)
-=========================== */
+
+
+/* Container for buttons */
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    padding: 10px;
+    gap: 10px;
+    margin: 10px 0;
 }
 
-.nav-button {
-    background: transparent;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container .button,
+.container a.button {
+    display: inline-block;
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 150px;
+    padding: 1px;
+    border: 2px solid #000;
+    background-color: #f4f4f4;
     cursor: pointer;
-    transition: transform 0.15s ease, opacity 0.15s ease;
-    color: #000;
-    text-transform: uppercase;
-}
-
-.nav-button:hover {
-    transform: scale(1.1);
-    opacity: 0.85;
-}
-
-.nav-button.active .nav-label {
-    color: #e84444;
-}
-
-.nav-button.active .nav-icon {
-    filter: drop-shadow(0 0 3px #e84444);
-}
-
-.nav-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 4px;
-    object-fit: contain;
-}
-
-.nav-label {
-    font-size: 0.7rem;
-    line-height: 1;
-}
-
-/* ===========================
-   BLOGS + IMAGE STYLES
-=========================== */
-.blog-post {
-    background-color: #ffe2ea;
-    border: 5px solid #e6ffe6;
-}
-
-.blog-post img {
-    width: 100%;
-    border: 5px double #EDB96E;
-}
-
-.blog-post h1 {
     text-align: center;
-    font-size: 180%;
+    box-sizing: border-box;
+    text-decoration: none; /* remove underline for links */
+    color: inherit;        /* keep text color consistent */
 }
 
-.blog-post h2 {
-    text-align: center;
-    font-size: 120%;
+.container .button:hover,
+.container a.button:hover, .window-title button:hover {
+    background-color: #e84444;
+    color: #fff;
 }
 
-/* ===========================
-   FORM STYLES
-=========================== */
-.form-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    max-width: 600px;
+
+.container .button:hover {
+    background-color: #e84444;
+    color: #fff;
 }
 
+
+
+
+
+
+.image-container {
+    width: 40%;
+    max-width: 200px;
+    margin: 0 auto;           /* center the container itself */
+    text-align: center;       /* fallback centering */
+}
+
+
+
+img, h1 img {
+    display: block;        /* block prevents inline quirks */
+    max-width: 60%;       /* never bigger than parent container */
+    height: auto;          /* maintain aspect ratio */
+    margin: 0 auto;        /* center the image */
+
+    height: auto;
+}
+
+
+
+
+
+.title-logo{
+    width: 100%;          /* or whatever max size you want */
+
+    /* maintain aspect ratio: 1:1 for square, adjust as needed */
+    aspect-ratio: 2 / 1;           /* modern browsers support this */
+
+    margin: 0 auto;
+}
+
+
+
+/* Estilos para formularios */
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -193,8 +158,8 @@ body {
 .form-group select {
     padding: 8px;
     border: 2px solid #000;
+    font-family: "lores-15-bold-alt-oakland", sans-serif;
     background-color: #fff;
-    color: #1a1a1a;
 }
 
 .form-group input:focus,
@@ -209,9 +174,7 @@ body {
     min-height: 1.2em;
 }
 
-/* ===========================
-   MESSAGES
-=========================== */
+
 .message {
     padding: 10px;
     margin: 10px 0;
@@ -231,21 +194,9 @@ body {
     color: red;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
 @media (max-width: 350px) {
     .window {
-        margin: 10px 5px;
-        padding: 5px;
-    }
-
-    .nav-icon {
-        width: 32px;
-        height: 32px;
-    }
-
-    .nav-label {
-        font-size: 0.6rem;
+        margin: 10px 5px; /* small margins */
+        padding: 5px;     /* reduce padding */
     }
 }
