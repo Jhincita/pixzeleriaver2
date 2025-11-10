@@ -11,7 +11,7 @@ export default function Contact() {
 
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
-    const [openWindow, setOpenWindow] = useState(true); // initially open
+    // const [openWindow, setOpenWindow] = useState(true); // revisar
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,6 +43,9 @@ export default function Contact() {
     };
 
     return (
+
+        <div className="form-wrapper">
+
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nombre:</label>
@@ -83,5 +86,6 @@ export default function Contact() {
 
                 {success && <div className="message success">Mensaje enviado con éxito.</div>}
             </form>
+        </div>
     );
 }

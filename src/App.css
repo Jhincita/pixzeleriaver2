@@ -1,3 +1,35 @@
+.page-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.blog-post{
+    background-color: #ffe2ea;
+    border-color: #e6ffe6;
+    border-style: solid;
+    border-width: 5px;
+
+}
+.blog-post img{
+    width: 100%;
+    border-color: #EDB96E;
+    border-width: 5px;
+    border-style: double;
+
+}
+
+.blog-post h1{
+    text-align: center;
+    font-size: 180%;
+}
+.blog-post h2{
+    text-align: center;
+    font-size: 120%;
+}
 
 body {
     font-family: "lores-15-bold-alt-oakland", sans-serif;
@@ -10,6 +42,8 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
+    background-image: url("./assets/bg.svg");
+    background-attachment: fixed;
 }
 .header {
     margin-top: 4vh; /*proporcional al view height.*/
@@ -18,7 +52,10 @@ body {
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
 .window {
     position: relative;
@@ -28,10 +65,8 @@ body {
     padding: 0;
     border: 2px solid #000;
     background-color: #fff;
-    background-image: url("assets/window_border_red.svg");
     background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* HACER BORDES PARA EL FONDO */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -42,7 +77,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center; /* title stays centered */
+    justify-content: center;
     background-color: rgba(255,159,181,1);
     width: 100%;
     padding: 5px 0;
@@ -136,6 +171,17 @@ img, h1 img {
 
 
 /* Estilos para formularios */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    max-width: 90%;
+
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -160,6 +206,7 @@ img, h1 img {
     border: 2px solid #000;
     font-family: "lores-15-bold-alt-oakland", sans-serif;
     background-color: #fff;
+    color: #1a1a1a;
 }
 
 .form-group input:focus,

@@ -33,7 +33,7 @@ export default function Login() {
     };
 
     return (
-        <div >
+        <div className="form-wrapper">
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Nombre de usuario:</label>
@@ -63,6 +63,7 @@ export default function Login() {
                 </div>
 
                 <button type="submit" className="pixel-button">Ingresar</button>
+
             </form>
 
             <p>
