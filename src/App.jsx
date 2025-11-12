@@ -11,6 +11,7 @@ import CartPage from "./pages/CartPage.jsx";
 import AdminPanel from "./pages/AdminPanel";
 import Juego from './pages/Juego.jsx';
 import Window from "./components/Window";
+import ArmaTuPizza from "./pages/ArmaTuPizza.jsx";
 import './App.css';
 
 function ProtectedAdminRoute({ children }) {
@@ -39,7 +40,8 @@ function MainPage({ User, setUser, cart, setCart, handleLoginSuccess }) {
         contact: <Contact />,
         blogs: <Blogs />,
         cart: <CartPage cart={cart} setCart={setCart} />,
-        juego: <Juego />   
+        armatupizza: <ArmaTuPizza cart={cart} setCart={setCart} />,
+        game: <Juego />  
     };
 
     return (
