@@ -40,8 +40,7 @@ function MainPage({ User, setUser, cart, setCart, handleLoginSuccess }) {
         contact: <Contact />,
         blogs: <Blogs />,
         cart: <CartPage cart={cart} setCart={setCart} />,
-        armatupizza: <ArmaTuPizza cart={cart} setCart={setCart} />,
-        game: <Juego />  
+        armatupizza: <ArmaTuPizza cart={cart} setCart={setCart} />  
     };
 
     return (
