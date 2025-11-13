@@ -16,7 +16,7 @@ import Blogs from "./pages/Blogs";
 import BlogsImg from "./assets/navbar/blogs.svg"
 import CartPage from "./pages/CartPage.jsx";
 import CartImg from "./assets/navbar/cart.svg"
-import BuildAPizza from "./pages/BuildAPizza.jsx";
+import BuildAPizza from "./components/BuildAPizza/BuildAPizza.jsx";
 import BuildAPizzaImg from "./assets/navbar/buildAPizza.svg"
 
 import AdminPanel from "./pages/AdminPanel";
